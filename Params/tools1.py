@@ -35,35 +35,24 @@ def parse():
                 # print(jkname)
                 jkdata = page[1:]
                 # print(jkdata)
-                pages[jkname]=jkdata[0]
-                # print(page)
+                pages[jkname]=jkdata
+    # print(pages["lgo"])
+    # for n in pages["wwww"]:
+    #     print(n.keys())
+    # print(page)
+    # print(pages)
     return pages
 
-    # pages = {}
-    # for root, dirs, files in os.walk(path_ya):
-    #     for name in files:
-    #         watch_file_path = os.path.join(root, name)
-    #         with open(watch_file_path, 'r',encoding='UTF-8') as f:
-    #             page = yaml.safe_load(f)
-    #             pages.update(page)
-    #     print(pages)
-
-
-# class GetPages:
-#     @staticmethod
-#     def get_page_list():
-#         #抽掉dec、parameters 将数据打包成接口名[value]的字典数据
-#         _page_list = {}
-#         pages = parse()
-#         for page, value in pages.items():
-#             parameters = value['parameters']
-#             data_list = []
-#             for parameter in parameters:
-#                 data_list.append(parameter)
-#             _page_list[page] = data_list
-#
-#         return _page_list
+# def caselist(yaml):
+#     data = parse()
+#     keylist=[]
+#     for n in data[yaml]:
+#         # list.append(n.keys())
+#         # print(list(n.keys()))
+#         keylist.extend(list(n.keys()))
+#     print(keylist)
 
 
 if __name__ == '__main__':
-    parse()
+    # parse()
+    caselist("wwww")
