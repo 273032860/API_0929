@@ -20,7 +20,7 @@ def parse(yname):
     # path_ya = "C:/Users/Lenovo/Desktop/接口文档/har2case/工单对接流程/接口数据"
     # path_ya = "C:/Users/Lenovo/Desktop/接口文档/har2case/需求一体化查询统计类征科流程/接口数据"
     # path_ya = "C:/Users/Lenovo/Desktop/接口文档/har2case/日常检查简易流程/接口数据"
-    path_ya = "C:/Users/Lenovo/Desktop/接口文档/har2case/工单对接流程市局_稽查局_分局/抓包数据"
+    path_ya = "C:/Users/Lenovo/Desktop/接口文档/har2case/工单对接流程市局_稽查局_分局/345"
     # print(path_ya)
     pages = []
     for root, dirs, files in os.walk(path_ya):
@@ -31,23 +31,27 @@ def parse(yname):
             #将root路径+files文件名做拼接C:/Users/Lenovo/Desktop/接口文档/har2case/工单对接\login.yaml
             with open(watch_file_path, 'r', encoding='UTF-8') as f:
                 page = yaml.safe_load(f)
-                # print(len(page))
+                # print(page[9])
+                # print(page["test"])
+                # print((page)[0])
                 for n in range(1,len(page)):
                     # print(page[n]["test"]["name"])
-                    # print(n)
+                #     #                     # print(n)
                     list1= (page[n]["test"]["name"].split('/')[-1]+"{0}".format(n))
                     # print(list1)
-                    # page[n][page[n]["test"]["name"].split('/')[-1]+"{0}".format(n)]= page[n].pop("test")
-                    # print(page[n])
+                #     # # print(page[n])
                     page[n][list1] = page[n].pop("test")
+                #     print(type(page))
+                    # page2 = ",".join(str(i) for i in page)
+                    # print(page)
                     pages.append(page)
             # with open(watch_file_path, "w") as yaml_file:
-    # print(pages)
+    # print(page)
     pages[0][0]["config"] = yname
     with open(path_ya+"/{}.yaml".format(yname),"w")as yaml_file:
         yaml.dump(pages[0], yaml_file)
-
+    # print()
 
 
 if __name__ == '__main__':
-    parse("wwww")
+    parse("syh")

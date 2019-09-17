@@ -20,7 +20,7 @@ def parse():
     # path_ya = "C:/Users/Lenovo/Desktop/接口文档/har2case/工单对接流程/接口数据"
     # path_ya = "C:/Users/Lenovo/Desktop/接口文档/har2case/需求一体化查询统计类征科流程/接口数据"
     # path_ya = "C:/Users/Lenovo/Desktop/接口文档/har2case/日常检查简易流程/接口数据"
-    path_ya = "C:/Users/Lenovo/Desktop/接口文档/har2case/工单对接流程市局_稽查局_分局/抓包数据"
+    path_ya = "C:/Users/Lenovo/Desktop/接口文档/har2case/工单对接流程市局_稽查局_分局/345"
     # print(path_ya)
     pages = {}
     for root, dirs, files in os.walk(path_ya):
@@ -31,11 +31,11 @@ def parse():
             #将root路径+files文件名做拼接C:/Users/Lenovo/Desktop/接口文档/har2case/工单对接\login.yaml
             with open(watch_file_path, 'r', encoding='UTF-8') as f:
                 page = yaml.safe_load(f)
-                jkname = page[0]["config"]
+                # jkname = page[0]["config"]
                 # print(jkname)
-                jkdata = page[1:]
-                # print(jkdata)
-                pages[jkname]=jkdata
+                # jkdata = page[1:]
+                return page
+                # pages[jkname]=jkdata[0]
     # print(pages["lgo"])
     # for n in pages["wwww"]:
     #     print(n.keys())
@@ -54,5 +54,5 @@ def parse():
 
 
 if __name__ == '__main__':
-    # parse()
-    caselist("wwww")
+    parse()
+    # caselist("wwww")

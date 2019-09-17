@@ -6,40 +6,44 @@ path_dir = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir
 """
 工单对接流程数据
 """
-def get_parameter(name,case):
-    #将数据封装成只剩data、headers、url数据，传参yaml名，case名
-    data = tools1.parse()
-    # print(data)
-    param = data[name][0][case]["request"]
-    # print(param)
-    return param
+# def get_parameter(name):
+#     #将数据封装成只剩data、headers、url数据，传参yaml名，case名
+#     data = tools1.parse()
+#     print(data)
+#     # param = data[name]
+#     # param = data[name][0][case]["request"]
+#
+#     # print(type(param))
+#     # return param
 
-def caselist(yaml):
+def caselist():
     #获取整理完的数据接口名，传yaml名
     data = tools1.parse()
     keylist=[]
-    for n in data[yaml]:
-        # list.append(n.keys())
-        # print(list(n.keys()))
+    for n in data[1:]:
         keylist.extend(list(n.keys()))
-    print(keylist)
     return keylist
 
 
-def login1(case):
-    params = get_parameter("lgo",case)
-    url = params["url"]
-    data = params["data"]
-    header = params["headers"]
-    return url,data,header
+# def login1(case):
+#     params = get_parameter("lgo",case)
+#     url = params["url"]
+#     data = params["data"]
+#     header = params["headers"]
+#     return url,data,header
+#
+def casedata(casename):
+    #获取yaml文件中的casename的数据，传casename获得data数据
+    data = tools1.parse()
+    data1= data[caselist().index(casename)+1]
+    url =data1[casename]["request"]["url"]
+    data = data1[casename]["request"]["json"]
+    header = data1[casename]["request"]["headers"]
+    print(url,data,header)
+    return url, data, header
 
-class casedata():
-    #封装接口数据，传case名
-    def __init__(self,case1):
-        params = get_parameter("wwww",case1)
-        self.url = params["url"]
-        self.data = params["json"]
-        self.header = params["headers"]
 
 if __name__ == '__main__':
-    login1("testcase1")
+    # login1("testcase1")
+    # casedata("createTask1")
+    casedata("createTask1")

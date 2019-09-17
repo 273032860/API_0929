@@ -20,6 +20,7 @@ def Login(para):
     response = session.post(urls, params, headers=headers)
     assert test.assert_code(response.status_code, 200)
     cookie = requests.utils.dict_from_cookiejar(response.cookies)
+    # print(cookie)
     return cookie
 
 def save(para,cook):
@@ -38,24 +39,31 @@ def save(para,cook):
                                 cookies=cook)
     assert test.assert_code(response.status_code, 200)
     assert test.assert_code(response.json()["code"], "SUCCESS")
+    if response.json()["data"]["tasks"][0]['taskId'] != params["taskId"]:
+        t_s = {}
+        t_s["taskId"] = response.json()["data"]["tasks"][0]['taskId']
+        t_s["processInsId"] = response.json()["data"]["tasks"][0]['processInsId']
+        with open('t_s.txt', 'w') as f:
+            f.write(json.dumps(t_s))
 
-def handleTask(para,cook):
-    urls,params,headers = para
-    test = Assert.Assertions()
-    with open('t_s.txt', 'r') as f:
-        js = f.read()
-        dic = json.loads(js)
-    params["taskId"] = dic["taskId"]
-    params["processInstanceId"] = dic["processInsId"]
-    response = requests.request("POST", urls, data=json.dumps(params), headers=headers,
-                                cookies=cook)
-    assert test.assert_code(response.status_code, 200)
-    assert test.assert_code(response.json()["code"], "SUCCESS")
-    t_s = {}
-    t_s["taskId"] = response.json()["data"]["tasks"][0]['taskId']
-    t_s["processInsId"] = response.json()["data"]["tasks"][0]['processInsId']
-    with open('t_s.txt', 'w') as f:
-        f.write(json.dumps(t_s))
+
+# def handleTask(para,cook):
+#     urls,params,headers = para
+#     test = Assert.Assertions()
+#     with open('t_s.txt', 'r') as f:
+#         js = f.read()
+#         dic = json.loads(js)
+#     params["taskId"] = dic["taskId"]
+#     params["processInstanceId"] = dic["processInsId"]
+#     response = requests.request("POST", urls, data=json.dumps(params), headers=headers,
+#                                 cookies=cook)
+#     assert test.assert_code(response.status_code, 200)
+#     assert test.assert_code(response.json()["code"], "SUCCESS")
+#     t_s = {}
+#     t_s["taskId"] = response.json()["data"]["tasks"][0]['taskId']
+#     t_s["processInsId"] = response.json()["data"]["tasks"][0]['processInsId']
+#     with open('t_s.txt', 'w') as f:
+#         f.write(json.dumps(t_s))
 
 def createTask(para,cook):
     nowTime = datetime.datetime.now().strftime('%m/%d %H:%M:%S')
@@ -80,26 +88,30 @@ class Testgddj:
         """
             用例描述：张越冀登录
         """
-        return Login(Login(params5.login1("testcase1")))
+        return Login(params5.login1("testcase1"))
 
-    def test_createTask(self):
+    def test_createTask(self,wen):
         """
             用例描述：创建发起流程
         """
-        pass
+        createTask(params5.casedata(wen),self.test_Login_00())
 
-    def test_save_03(self):
+    def test_save(self,wen):
         """
             用例描述：环节1保存意见
         """
-        pass
-
-    def handleTask(self):
-        pass
-        # handleTask(params5)
+        save(params5.casedata(wen),self.test_Login_00())
 
 
 
 if __name__ == '__main__':
     s = Testgddj()
+    # s.test_Login_00()
+    # s.test_createTask("createTask1")
+
+    # s.test_createTask(params5.caselist("wwww")[0])
+    # for n in params5.caselist("wwww"):
+    # print(params5.caselist("wwww")[0])
+    # print(params5.casedata("createTask1"))
+
     # Login(params5.login1("testcase1"))
