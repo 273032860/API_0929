@@ -1,0 +1,42 @@
+[ERROR 2018-08-24 09:55:37]Response body != expected_msg, expected_msg is {"error":"继续操作前请注册或者登录9."}, body is {"error":"继续操作前请注册或者登录."}
+[ERROR 2018-08-24 09:59:43]Response body != expected_msg, expected_msg is {"error":"继续操作前请注册或者登录9."}, body is {"error":"继续操作前请注册或者登录."}
+[ERROR 2018-08-24 10:00:11]Response time > expected_time, expected_time is 400, time is 482.745
+[ERROR 2018-08-24 10:00:12]Response body != expected_msg, expected_msg is {"error":"继续操作前请注册或者登录9."}, body is {"error":"继续操作前请注册或者登录."}
+[ERROR 2018-08-25 21:49:38]Response time > expected_time, expected_time is 100, time is 671.038
+[ERROR 2018-08-25 21:49:41]statusCode error, expected_code is 208, statusCode is 200 
+[ERROR 2019-05-07 16:27:15]邮件发送失败，请检查邮件配置
+[ERROR 2019-05-07 16:28:20]邮件发送失败，请检查邮件配置
+[ERROR 2019-05-07 16:30:44]邮件发送失败，请检查邮件配置
+[ERROR 2019-05-07 17:04:57]邮件发送失败，请检查邮件配置
+[ERROR 2019-06-03 16:33:25]邮件发送失败，请检查邮件配置
+[ERROR 2019-08-21 17:41:15]邮件发送失败，请检查邮件配置
+[ERROR 2019-08-28 15:24:52]statusCode error, expected_code is 200, statusCode is 900 
+[ERROR 2019-08-28 15:49:35]statusCode error, expected_code is 200, statusCode is 404 
+[ERROR 2019-08-28 15:49:36]statusCode error, expected_code is 200, statusCode is 900 
+[ERROR 2019-08-28 16:05:32]statusCode error, expected_code is 200, statusCode is 404 
+[ERROR 2019-08-28 16:05:33]statusCode error, expected_code is 200, statusCode is 900 
+[ERROR 2019-08-29 11:06:35]statusCode error, expected_code is SUCCESS, statusCode is INTERNAL_SERVER_ERROR 
+[ERROR 2019-08-29 11:07:39]statusCode error, expected_code is SUCCESS, statusCode is INTERNAL_SERVER_ERROR 
+[ERROR 2019-08-29 11:08:24]statusCode error, expected_code is SUCCESS, statusCode is INTERNAL_SERVER_ERROR 
+[ERROR 2019-08-29 11:09:41]statusCode error, expected_code is SUCCESS, statusCode is INTERNAL_SERVER_ERROR 
+[ERROR 2019-08-29 11:11:48]statusCode error, expected_code is SUCCESS, statusCode is INTERNAL_SERVER_ERROR 
+[ERROR 2019-08-29 11:33:26]statusCode error, expected_code is SUCCESS, statusCode is INTERNAL_SERVER_ERROR 
+[ERROR 2019-08-30 09:35:38]statusCode error, expected_code is SUCCESS, statusCode is INTERNAL_SERVER_ERROR 
+[ERROR 2019-09-02 16:11:19]statusCode error, expected_code is 200, statusCode is 502 
+[ERROR 2019-09-02 16:33:01]statusCode error, expected_code is 200, statusCode is 502 
+[ERROR 2019-09-02 16:33:37]statusCode error, expected_code is 200, statusCode is 502 
+[ERROR 2019-09-03 17:09:34]statusCode error, expected_code is 200, statusCode is 502 
+[ERROR 2019-09-03 17:11:59]statusCode error, expected_code is SUCCESS, statusCode is INTERNAL_SERVER_ERROR 
+[ERROR 2019-09-03 17:24:00]statusCode error, expected_code is SUCCESS, statusCode is INTERNAL_SERVER_ERROR 
+[ERROR 2019-09-03 17:24:29]statusCode error, expected_code is SUCCESS, statusCode is INTERNAL_SERVER_ERROR 
+[ERROR 2019-09-03 17:25:12]statusCode error, expected_code is SUCCESS, statusCode is routeElementNotFound 
+[ERROR 2019-09-10 10:18:24]statusCode error, expected_code is SUCCESS, statusCode is INTERNAL_SERVER_ERROR 
+[ERROR 2019-09-10 10:22:33]statusCode error, expected_code is SUCCESS, statusCode is INTERNAL_SERVER_ERROR 
+[ERROR 2019-09-10 10:22:49]statusCode error, expected_code is SUCCESS, statusCode is INTERNAL_SERVER_ERROR 
+[ERROR 2019-09-10 15:36:31]statusCode error, expected_code is 200, statusCode is 900 
+[ERROR 2019-09-10 15:37:55]statusCode error, expected_code is 200, statusCode is 900 
+[ERROR 2019-09-10 15:38:49]statusCode error, expected_code is 200, statusCode is 900 
+[ERROR 2019-09-10 16:42:14]statusCode error, expected_code is SUCCESS, statusCode is INTERNAL_SERVER_ERROR 
+[ERROR 2019-09-10 16:46:31]statusCode error, expected_code is SUCCESS, statusCode is INTERNAL_SERVER_ERROR 
+[ERROR 2019-09-10 16:47:59]statusCode error, expected_code is SUCCESS, statusCode is INTERNAL_SERVER_ERROR 
+[ERROR 2019-09-12 09:19:02]statusCode error, expected_code is SUCCESS, statusCode is 表单中未传入部门数据 

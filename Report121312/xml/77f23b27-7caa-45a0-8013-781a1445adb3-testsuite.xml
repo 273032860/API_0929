@@ -1,0 +1,110 @@
+<ns0:test-suite xmlns:ns0="urn:model.allure.qatools.yandex.ru" start="1566380473089" stop="1566380473089">
+  <description>This is the tests collection phase. Failures are modules that failed to collect.</description>
+  <name>test_collection_phase</name>
+  <title>Collection phase</title>
+  <labels/>
+  <test-cases>
+    <test-case start="1566380473089" status="broken" stop="1566380473089">
+      <name>test_basic</name>
+      <failure>
+        <message>failed</message>
+        <stack-trace>TestCase\test_basic.py:9: in &lt;module&gt;
+    from Params.params import Basic
+Params\params.py:23: in &lt;module&gt;
+    class Basic:
+Params\params.py:25: in Basic
+    params = get_parameter('Basic')
+Params\params.py:18: in get_parameter
+    data = tools.GetPages().get_page_list()
+Params\tools.py:32: in get_page_list
+    pages = parse()
+Params\tools.py:23: in parse
+    page = yaml.safe_load(f)
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\__init__.py:162: in safe_load
+    return load(stream, SafeLoader)
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\__init__.py:112: in load
+    loader = Loader(stream)
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\loader.py:34: in __init__
+    Reader.__init__(self, stream)
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\reader.py:85: in __init__
+    self.determine_encoding()
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\reader.py:124: in determine_encoding
+    self.update_raw()
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\reader.py:178: in update_raw
+    data = self.stream.read(size)
+E   UnicodeDecodeError: 'gbk' codec can't decode byte 0xa1 in position 23: illegal multibyte sequence</stack-trace>
+      </failure>
+      <attachments/>
+      <labels/>
+      <steps/>
+    </test-case>
+    <test-case start="1566380473089" status="broken" stop="1566380473089">
+      <name>test_collections</name>
+      <failure>
+        <message>failed</message>
+        <stack-trace>TestCase\test_collections.py:9: in &lt;module&gt;
+    from Params.params import Collections
+Params\params.py:23: in &lt;module&gt;
+    class Basic:
+Params\params.py:25: in Basic
+    params = get_parameter('Basic')
+Params\params.py:18: in get_parameter
+    data = tools.GetPages().get_page_list()
+Params\tools.py:32: in get_page_list
+    pages = parse()
+Params\tools.py:23: in parse
+    page = yaml.safe_load(f)
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\__init__.py:162: in safe_load
+    return load(stream, SafeLoader)
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\__init__.py:112: in load
+    loader = Loader(stream)
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\loader.py:34: in __init__
+    Reader.__init__(self, stream)
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\reader.py:85: in __init__
+    self.determine_encoding()
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\reader.py:124: in determine_encoding
+    self.update_raw()
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\reader.py:178: in update_raw
+    data = self.stream.read(size)
+E   UnicodeDecodeError: 'gbk' codec can't decode byte 0xa1 in position 23: illegal multibyte sequence</stack-trace>
+      </failure>
+      <attachments/>
+      <labels/>
+      <steps/>
+    </test-case>
+    <test-case start="1566380473089" status="broken" stop="1566380473089">
+      <name>test_personal</name>
+      <failure>
+        <message>failed</message>
+        <stack-trace>TestCase\test_personal.py:10: in &lt;module&gt;
+    from Params.params import Personal
+Params\params.py:23: in &lt;module&gt;
+    class Basic:
+Params\params.py:25: in Basic
+    params = get_parameter('Basic')
+Params\params.py:18: in get_parameter
+    data = tools.GetPages().get_page_list()
+Params\tools.py:32: in get_page_list
+    pages = parse()
+Params\tools.py:23: in parse
+    page = yaml.safe_load(f)
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\__init__.py:162: in safe_load
+    return load(stream, SafeLoader)
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\__init__.py:112: in load
+    loader = Loader(stream)
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\loader.py:34: in __init__
+    Reader.__init__(self, stream)
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\reader.py:85: in __init__
+    self.determine_encoding()
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\reader.py:124: in determine_encoding
+    self.update_raw()
+C:\Users\Lenovo\AppData\Local\Programs\Python\Python37\lib\site-packages\yaml\reader.py:178: in update_raw
+    data = self.stream.read(size)
+E   UnicodeDecodeError: 'gbk' codec can't decode byte 0xa1 in position 23: illegal multibyte sequence</stack-trace>
+      </failure>
+      <attachments/>
+      <labels/>
+      <steps/>
+    </test-case>
+  </test-cases>
+</ns0:test-suite>
