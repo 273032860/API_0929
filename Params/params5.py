@@ -2,7 +2,7 @@ import os
 from Params import tools1
 from Common import Log
 log = Log.MyLog()
-path_dir = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
+# path_dir = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 """
 工单对接流程数据
 """
@@ -22,28 +22,25 @@ def caselist():
     keylist=[]
     for n in data[1:]:
         keylist.extend(list(n.keys()))
+    # print(keylist)
     return keylist
 
-
-# def login1(case):
-#     params = get_parameter("lgo",case)
-#     url = params["url"]
-#     data = params["data"]
-#     header = params["headers"]
-#     return url,data,header
-#
 def casedata(casename):
     #获取yaml文件中的casename的数据，传casename获得data数据
     data = tools1.parse()
     data1= data[caselist().index(casename)+1]
+    # print(data1)
     url =data1[casename]["request"]["url"]
     data = data1[casename]["request"]["json"]
     header = data1[casename]["request"]["headers"]
-    print(url,data,header)
+    # a = data["gddjId"]
+    # print("processInstanceId" in data.keys())
+    # print(a is not None)
+    # print(a)
     return url, data, header
 
 
 if __name__ == '__main__':
-    # login1("testcase1")
-    # casedata("createTask1")
-    casedata("createTask1")
+    casedata("updateGddjxx14")
+    # print("handleTask2" in "handleTask")
+    # caselist()

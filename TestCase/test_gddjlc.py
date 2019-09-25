@@ -13,69 +13,67 @@ from Common import Assert
 import json
 import datetime
 
-def Login(para):
-    urls,params,headers = para
+def Login(zhanghao):
+    urls = "http://10.199.137.214:8080/swmh/login.action"
+    params = {"loginParam": zhanghao+",123"}
+    headers = {}
     test = Assert.Assertions()
     session = requests.session()
     response = session.post(urls, params, headers=headers)
     assert test.assert_code(response.status_code, 200)
     cookie = requests.utils.dict_from_cookiejar(response.cookies)
-    # print(cookie)
     return cookie
 
-def save(para,cook):
-    data = para
+def save(para):
+    #接口容器
+    urls,params,headers = para
     test = Assert.Assertions()
-    urls = data.url
-    params = data.data
+    #获取文件参数
     with open('t_s.txt', 'r') as f:
         js = f.read()
         dic = json.loads(js)
+    if urls.split('/')[-1] == "updateGddjxx": #判断保存，传gddjId
+        if params["gddjId"] is not None:
+            with open('gddjId.txt', 'r') as f:
+                js = f.read()
+                dic1 = json.loads(js)
+            params["gddjId"] = dic1["gddjId"]
     params["taskId"] = dic["taskId"]
-    params["processInsId"] = dic["processInsId"]
-    headers = data.header
-    print(params)
+    if "processInstanceId" in params.keys():
+        params["processInstanceId"] = dic["processInsId"]
+    if "processInsId" in params.keys():
+        params["processInsId"] = dic["processInsId"]
+    zhanghao = dic["login"] #读取文件内账号
+    # print(params)
     response = requests.request("POST", urls, data=json.dumps(params), headers=headers,
-                                cookies=cook)
+                                cookies=Login(zhanghao))
     assert test.assert_code(response.status_code, 200)
     assert test.assert_code(response.json()["code"], "SUCCESS")
-    if response.json()["data"]["tasks"][0]['taskId'] != params["taskId"]:
+    if urls.split('/')[-1] == "handleTask":
         t_s = {}
         t_s["taskId"] = response.json()["data"]["tasks"][0]['taskId']
         t_s["processInsId"] = response.json()["data"]["tasks"][0]['processInsId']
+        t_s["login"] = params["nextParticipantMap"][list(params["nextParticipantMap"])[0]][0]["userId"]
         with open('t_s.txt', 'w') as f:
             f.write(json.dumps(t_s))
+    if urls.split('/')[-1] == "updateGddjxx":
+        gddjId = {}
+        gddjId["gddjId"] = response.json()["data"]
+        with open('gddjId.txt', 'w') as f:
+            f.write(json.dumps(gddjId))
 
-
-# def handleTask(para,cook):
-#     urls,params,headers = para
-#     test = Assert.Assertions()
-#     with open('t_s.txt', 'r') as f:
-#         js = f.read()
-#         dic = json.loads(js)
-#     params["taskId"] = dic["taskId"]
-#     params["processInstanceId"] = dic["processInsId"]
-#     response = requests.request("POST", urls, data=json.dumps(params), headers=headers,
-#                                 cookies=cook)
-#     assert test.assert_code(response.status_code, 200)
-#     assert test.assert_code(response.json()["code"], "SUCCESS")
-#     t_s = {}
-#     t_s["taskId"] = response.json()["data"]["tasks"][0]['taskId']
-#     t_s["processInsId"] = response.json()["data"]["tasks"][0]['processInsId']
-#     with open('t_s.txt', 'w') as f:
-#         f.write(json.dumps(t_s))
-
-def createTask(para,cook):
-    nowTime = datetime.datetime.now().strftime('%m/%d %H:%M:%S')
+def createTask(para,zhanghao):
     urls,params,headers = para
     test = Assert.Assertions()
-    params["preSetTaskName"] = "{0}测试-工单对接流程".format(nowTime)
-    response = requests.request("POST", urls, data=json.dumps(params), headers=headers, cookies=cook)
+    nowTime = datetime.datetime.now().strftime('%m/%d %H:%M:%S')
+    params["preSetTaskName"] = "{0}自动化测试-市局流程".format(nowTime)
+    response = requests.request("POST", urls, data=json.dumps(params), headers=headers, cookies=Login(zhanghao))
     assert test.assert_code(response.status_code, 200)
     assert 'SUCCESS' in response.text
     t_s = {}
     t_s["taskId"] = response.json()["data"]["tasks"][0]['taskId']
     t_s["processInsId"] = response.json()["data"]["tasks"][0]['processInsId']
+    t_s["login"] = zhanghao
     with open('t_s.txt', 'w') as f:
         f.write(json.dumps(t_s))
     assert test.assert_code(response.status_code, 200)
@@ -84,34 +82,23 @@ class Testgddj:
     # @pytest.allure.feature('Home')
     # @allure.severity('blocker')
     # @allure.story('Login')
-    def test_Login_00(self):
+    def test_createTask(self):
         """
-            用例描述：张越冀登录
+            用例描述：发起流程
         """
-        return Login(params5.login1("testcase1"))
+        createTask(params5.casedata("createTask1"),"13100570043")
 
-    def test_createTask(self,wen):
-        """
-            用例描述：创建发起流程
-        """
-        createTask(params5.casedata(wen),self.test_Login_00())
-
-    def test_save(self,wen):
+    @pytest.mark.parametrize("casename1", params5.caselist()[1:])
+    def test_save(self,casename1):
         """
             用例描述：环节1保存意见
         """
-        save(params5.casedata(wen),self.test_Login_00())
+        save(params5.casedata(casename1))
 
 
 
 if __name__ == '__main__':
+    # s.test_createTask()
     s = Testgddj()
-    # s.test_Login_00()
-    # s.test_createTask("createTask1")
-
-    # s.test_createTask(params5.caselist("wwww")[0])
-    # for n in params5.caselist("wwww"):
-    # print(params5.caselist("wwww")[0])
-    # print(params5.casedata("createTask1"))
-
-    # Login(params5.login1("testcase1"))
+    s.test_createTask()
+    s.test_save()

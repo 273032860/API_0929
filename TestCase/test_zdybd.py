@@ -5,285 +5,157 @@ sys.path.append("C:/API_Automation-master")  #//path为你的工程根目录的�
 import allure
 import pytest
 import requests
-from Params import params5
+from Params import params6
 # from TestCase import cookie
 # from Common import Request
 # from Common import Consts
 from Common import Assert
 import json
 import datetime
+import shelve
 
-def Login(login):
-    data = params5.login(login)
+def Login(zhanghao):
+    urls = "http://10.199.137.214:8080/swmh/login.action"
+    params = {"loginParam": zhanghao+",123"}
+    headers = {}
     test = Assert.Assertions()
-    urls = data.url
-    params = data.data
-    headers = data.header
     session = requests.session()
     response = session.post(urls, params, headers=headers)
     assert test.assert_code(response.status_code, 200)
     cookie = requests.utils.dict_from_cookiejar(response.cookies)
+    # print(cookie)
     return cookie
 
-def onlyt_s(para,cook):
-    data = para()
+def save(para):
+    #接口容器
+    urls,params,headers = para
     test = Assert.Assertions()
-    urls = data.url
-    params = data.data
+    #获取文件参数
     with open('t_s.txt', 'r') as f:
         js = f.read()
         dic = json.loads(js)
     params["taskId"] = dic["taskId"]
-    params["processInsId"] = dic["processInsId"]
-    headers = data.header
-    print(params)
+    if "processInstanceId" in params.keys():
+        params["processInstanceId"] = dic["processInsId"]
+    if "processInsId" in params.keys():
+        params["processInsId"] = dic["processInsId"]
+    zhanghao = dic["login"] #读取文件内账号
+    # print(params)
     response = requests.request("POST", urls, data=json.dumps(params), headers=headers,
-                                cookies=cook)
+                                cookies=Login(zhanghao))
     assert test.assert_code(response.status_code, 200)
     assert test.assert_code(response.json()["code"], "SUCCESS")
-
-def save_form(para,cook):
-    data = para()
-    test = Assert.Assertions()
-    urls = data.url
-    params = data.data
-    with open('t_s.txt', 'r') as f:
-        js = f.read()
-        dic = json.loads(js)
-    params["taskId"] = dic["taskId"]
-    params["processInsId"] = dic["processInsId"]
-    with open('formSimpleId.txt', 'r') as f:
-        form1 = f.read()
-        fordic = json.loads(form1)
-    params["formSimpleId"]=fordic["formSimpleId"]
-    headers = data.header
-    print(params)
-    response = requests.request("POST", urls, data=json.dumps(params), headers=headers,
-                                cookies=cook)
-    assert test.assert_code(response.status_code, 200)
-    assert test.assert_code(response.json()["code"], "SUCCESS")
-    formId={}
-    formId["formSimpleId"] = response.json()["data"]["formSimpleId"]
-    with open('formSimpleId.txt', 'w') as f:
-        f.write(json.dumps(formId))
-
-
-def save_updata(para,cook):
-    data = para()
-    test = Assert.Assertions()
-    urls = data.url
-    params = data.data
-    with open('t_s.txt', 'r') as f:
-        js = f.read()
-        dic = json.loads(js)
-    params["taskId"] = dic["taskId"]
-    params["processInsId"] = dic["processInsId"]
-    headers = data.header
-    response = requests.request("POST", urls, data=json.dumps(params), headers=headers,
-                                cookies=cook)
-    assert test.assert_code(response.status_code, 200)
-    assert test.assert_code(response.json()["code"], "SUCCESS")
-
-def handleTask(para,cook):
-    data = para()
-    test = Assert.Assertions()
-    urls = data.url
-    params = data.data
-    with open('t_s.txt', 'r') as f:
-        js = f.read()
-        dic = json.loads(js)
-    params["taskId"] = dic["taskId"]
-    params["processInstanceId"] = dic["processInsId"]
-    headers = data.header
-    response = requests.request("POST", urls, data=json.dumps(params), headers=headers,
-                                cookies=cook)
-    assert test.assert_code(response.status_code, 200)
-    assert test.assert_code(response.json()["code"], "SUCCESS")
-    t_s = {}
-    t_s["taskId"] = response.json()["data"]["tasks"][0]['taskId']
-    t_s["processInsId"] = response.json()["data"]["tasks"][0]['processInsId']
-    with open('t_s.txt', 'w') as f:
-        f.write(json.dumps(t_s))
-
-class Testzdybd:
-    # @pytest.allure.feature('Home')
-    # @allure.severity('blocker')
-    # @allure.story('Login')
-    def test_Login_00(self):
-        """
-            用例描述：张越冀登录
-        """
-        return Login("testcase1")
-
-    def test_createTask_01(self):
-        """
-            用例描述：创建发起流程
-        """
-        nowTime = datetime.datetime.now().strftime('%m/%d %H:%M:%S')  # 现在
-        data = params5.casedata("createTask1")
-        test = Assert.Assertions()
-        urls = data.url
-        params = data.data
-        params["preSetTaskName"] = "{0}测试-工单对接流程".format(nowTime)
-        headers = data.header
-        response = requests.request("POST", urls, data=json.dumps(params), headers=headers,cookies=Login("testcase1"))
-        assert test.assert_code(response.status_code, 200)
-        assert 'SUCCESS' in response.text
+    if urls.split('/')[-1] == "handleTask":
         t_s = {}
         t_s["taskId"] = response.json()["data"]["tasks"][0]['taskId']
         t_s["processInsId"] = response.json()["data"]["tasks"][0]['processInsId']
-        with open('t_s.txt', 'w') as f :
+        t_s["login"] = params["nextParticipantMap"][list(params["nextParticipantMap"])[0]][0]["userId"]
+        with open('t_s.txt', 'w') as f:
             f.write(json.dumps(t_s))
-        assert test.assert_code(response.status_code, 200)
 
-    def test_param_02(self):
+
+def createTask(para,zhanghao):
+    urls,params,headers = para
+    test = Assert.Assertions()
+    nowTime = datetime.datetime.now().strftime('%m/%d %H:%M:%S')
+    params["preSetTaskName"] = "{0}自动化测试-自定义表单推税务人员".format(nowTime)
+    response = requests.request("POST", urls, data=json.dumps(params), headers=headers, cookies=Login(zhanghao))
+    assert test.assert_code(response.status_code, 200)
+    assert 'SUCCESS' in response.text
+    t_s = {}
+    t_s["taskId"] = response.json()["data"]["tasks"][0]['taskId']
+    t_s["processInsId"] = response.json()["data"]["tasks"][0]['processInsId']
+    t_s["login"] = zhanghao
+    with open('t_s.txt', 'w') as f:
+        f.write(json.dumps(t_s))
+    assert test.assert_code(response.status_code, 200)
+
+def daoru(zhanghao):
+    test = Assert.Assertions()
+    urls = "http://10.199.137.214:8080/workflow/web/workflow/form/rwzx/zdybd/excel/import/swry/djxh"
+    headers = {}
+    # files = {"file": open("C:/Users/Lenovo/Desktop/3DJXH.xls", "rb")}
+    fl = open('C:/Users/Lenovo/Desktop/3DJXH.xls', 'rb')
+    files = {'files': ('3DJXH.xls', fl, 'multipart/form-data', {'Expires': '0'})}
+    params = {}
+    with open('t_s.txt', 'r') as f:
+        js = f.read()
+        dic = json.loads(js)
+    params["taskId"] = dic["taskId"]
+    params["processInsId"] = dic["processInsId"]
+    # print(params)
+    zhanghao = dic["login"]  # 读取文件内账号
+    # print(zhanghao)
+    response = requests.post(urls, params,files=files,headers=headers,cookies=Login(zhanghao))
+    # print(response.text)
+    assert test.assert_code(response.status_code, 200)
+    assert 'SUCCESS' in response.text
+
+def handleTask_cf(para):
+    #接口容器
+    urls,params,headers = para
+    test = Assert.Assertions()
+    #获取文件参数
+    with open('t_s.txt', 'r') as f:
+        js = f.read()
+        dic = json.loads(js)
+    params["taskId"] = dic["taskId"]
+    if "processInstanceId" in params.keys():
+        params["processInstanceId"] = dic["processInsId"]
+    if "processInsId" in params.keys():
+        params["processInsId"] = dic["processInsId"]
+    zhanghao = dic["login"] #读取文件内账号
+    response = requests.request("POST", urls, data=json.dumps(params), headers=headers,
+                                cookies=Login(zhanghao))
+    assert test.assert_code(response.status_code, 200)
+    assert test.assert_code(response.json()["code"], "SUCCESS")
+    cflb = []
+    for inx,nextrw in enumerate(response.json()["data"]["tasks"]):
+        t_scf={}
+        t_scf["taskId"] = nextrw["taskId"]
+        t_scf["processInsId"] = nextrw['processInsId']
+        # print(params["formDataSplitDto"]["formDataSplitRuleDtoList"][inx]["participantDTOList"][inx]["userId"])
+        t_scf["login"] = params["formDataSplitDto"]["formDataSplitRuleDtoList"][inx]["participantDTOList"][0]["userId"]
+        cflb.append(t_scf)
+    with open('cflb.txt', 'w') as f:
+        f.write(json.dumps(cflb))
+
+class Test_zdybd:
+    # @pytest.allure.feature('Home')
+    # @allure.severity('blocker')
+    # @allure.story('Login')
+    def test_createTask(self):
+        """
+            用例描述：发起流程
+        """
+        createTask(params6.casedata("createTask1"),"13100250014")
+    #
+    @pytest.mark.parametrize("casename1", params6.caselist()[1:4])
+    def test_save(self,casename1):
         """
             用例描述：环节1保存意见
         """
-        onlyt_s(params5.casedata("param2"),self.test_Login_00)
+        save(params6.casedata(casename1))
 
-    def test_save_03(self):
-        """
-            用例描述：环节1保存表单
-        """
-        onlyt_s(params5.casedata("save3"),self.test_Login_00)
+    def test_daoru(self):
+        daoru("13100250014")
 
-    def test_updateGddjxx_04(self):
-        """
-            用例描述：环节1保存更新
-        """
-        save_updata(params5.casedata("updateGddjxx4"),self.test_Login_00)
+    @pytest.mark.parametrize("casename1", params6.caselist()[6:18])
+    def test_sh(self,casename1):
+        save(params6.casedata(casename1))
 
-    def test_type5(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        handleTask(params5.type5,self.test_Login_00)
-
-    def test_get6(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.get6,self.test_Login_00)
-
-    def test_lszDm7(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.lszDm7,self.test_Login_00)
-
-    def test_save8(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.save8,self.test_Login_00)
-
-    def test_handleTask9(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        handleTask(params5.handleTask9,self.test_Login_00())
-
-    def test_Login_02(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        return Login("testcase2")
-
-    def test_queryJcjksSwjg10(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.queryJcjksSwjg10,self.test_Login_02())
-
-    def test_param11(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.param11,self.test_Login_02())
-
-    def test_save12(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.save12,self.test_Login_02())
-
-    def test_updateGddjxx13(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.updateGddjxx13,self.test_Login_02())
-
-    def test_type14(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.type14,self.test_Login_02())
-
-    def test_get15(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.get15,self.test_Login_02())
-
-    def test_lszDm16(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.lszDm16,self.test_Login_02())
-
-    def test_save17(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.save17,self.test_Login_02())
-
-    def test_handleTask18(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        handleTask(params5.handleTask18,self.test_Login_02())
-
-    def test_queryJcjksSwjg19(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.queryJcjksSwjg19,self.test_Login_02())
-
-    def test_param20(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.param20,self.test_Login_02())
-
-    def test_save21(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.lszDm16,self.test_Login_02())
-
-    def test_lszDm16(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.lszDm16,self.test_Login_02())
-
-    def test_lszDm16(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.lszDm16,self.test_Login_02())
-
-    def test_lszDm16(self):
-        """
-            用例描述：推送到个人、企业处理岗
-        """
-        onlyt_s(params5.lszDm16,self.test_Login_02())
-
-
+    def test_handleTask_cf(self,casename1):
+        handleTask_cf(params6.casedata(casename1))
 
 
 
 if __name__ == '__main__':
-    s = Testzdybd()
-    s.test_createTask_01()
+    # s.test_createTask()
+    s = Test_zdybd()
+    # s.test_createTask()
+    # for n in params6.caselist()[1:4]:
+    #     s.test_save(n)
+    # s.test_daoru()
+    # for j in params6.caselist()[6:18]:
+    #     s.test_sh(j)
+    # s.test_handleTask_cf("handleTask19")
