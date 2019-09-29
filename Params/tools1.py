@@ -15,11 +15,11 @@ import os.path
 
 def parse():
     #读取所有yml数据并用字典形式保存
-    path_ya = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))) + '/Params/Param/xiugai'
+    # path_ya = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))) + '/Params/Param/xiugai'
     #市局-稽查局-分局
     # path_ya = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))) + '/Params/工单分局转简易/xiugai'
     #工单分局转简易
-    # path_ya = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))) + '/Params/工单市局/xiugai'
+    path_ya = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))) + '/Params/工单市局/xiugai'
     #工单市局流程
     for root, dirs, files in os.walk(path_ya):
         #os.walk获取路径、[]、文件名

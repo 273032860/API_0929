@@ -9,7 +9,7 @@ import os.path
 
 def parse(yname):
     #读取所有yml数据并用字典形式保存
-    path_ya = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))) + '/Params/自定义表单/创建任务-拆分前'
+    path_ya = str(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))) + '/Params/自定义表单/拆分后推送'
     # print(path_ya)
     pages = []
     for root, dirs, files in os.walk(path_ya):
@@ -33,4 +33,4 @@ def parse(yname):
 
 
 if __name__ == '__main__':
-    parse("zdy_cjrw")
+    parse("zdy_cjrwh_ts")
