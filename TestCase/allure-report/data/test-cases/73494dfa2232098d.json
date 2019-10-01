@@ -1,0 +1,76 @@
+{
+  "uid" : "73494dfa2232098d",
+  "name" : "test_save[updateGddjxx30]",
+  "fullName" : "test_gddjlc.Testgddj#test_save",
+  "historyId" : "5731bf48de53e90921ef6b8de9dd3826",
+  "time" : {
+    "start" : 1569567654375,
+    "stop" : 1569567654949,
+    "duration" : 574
+  },
+  "description" : "\n            用例描述：环节1保存意见\n        ",
+  "descriptionHtml" : "<pre><code>        用例描述：环节1保存意见\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n            用例描述：环节1保存意见\n        ",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "5ac5cd2d989c79d7",
+      "name" : "log",
+      "source" : "5ac5cd2d989c79d7.txt",
+      "type" : "text/plain",
+      "size" : 559
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite"
+  }, {
+    "name" : "suite",
+    "value" : "test_gddjlc"
+  }, {
+    "name" : "subSuite",
+    "value" : "Testgddj"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-QQNR3O0S"
+  }, {
+    "name" : "thread",
+    "value" : "21476-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_gddjlc"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "casename1",
+    "value" : "'updateGddjxx30'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "73494dfa2232098d.json",
+  "parameterValues" : [ "'updateGddjxx30'" ]
+}

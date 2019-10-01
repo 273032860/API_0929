@@ -1,0 +1,847 @@
+- config: zjylc
+- createTask1:
+    name: /workflow/web/workflow/engine/task/createTask
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        bizType: '1829'
+        contentType: json
+        createGw: ''
+        dataSource:
+          dataSet: []
+          disabled: false
+          extraDisabled: false
+          name: bizType
+          showSearch: false
+          title: "\u4EFB\u52A1\u7C7B\u578B"
+          type: treeSelect
+          validate: {}
+        getValidator:
+          flag: true
+          tip: ''
+        key: bizType
+        participant:
+          departId: ''
+          groupId: ''
+          userId: ''
+        preSetTaskName: PPPPPPPPPPPPP
+        processId: '1829'
+        qsFlag: false
+        sfgzr: Y
+        sourceAppId: webApp
+        targetTypeId: NSR
+        taskTargetIds: []
+        totalDayValue: null
+        totalHourValue: null
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/createTask
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- queryJcjksSwjg2:
+    name: /workflow/web/workflow/form/gddj/queryJcjksSwjg
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        jcjswjgDm: '13100510000'
+        params:
+          FM385:
+            apprOpinion: 1
+            sfjxzpjsbm: '0'
+            sfxyzjcfjcl: '0'
+            sfydgswjbj: null
+            sfzf: '0'
+            tsdx: '3'
+        processInsId: '23801'
+        taskId: '34050'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/form/gddj/queryJcjksSwjg
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- param3:
+    name: /workflow/web/workflow/engine/task/push/control/param
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        params:
+          FM385:
+            sfjxzpjsbm: '0'
+            sfxyzjcfjcl: '0'
+            sfydgswjbj: null
+            sfzf: '0'
+            tsdx: '3'
+        processInstanceId: '23801'
+        taskId: '34050'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/push/control/param
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- save4:
+    name: /workflow/web/workflow/form/simple/attachment/save
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        addAttachmentList: []
+        content: null
+        createUserId: ''
+        delFbzlList: []
+        processInsId: '23801'
+        taskId: '34050'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/form/simple/attachment/save
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- updateGddjxx5:
+    name: /workflow/web/workflow/form/gddj/updateGddjxx
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        bh: null
+        clyjId: null
+        clyjMb: null
+        departId: '13101070900'
+        ejfl: null
+        gddjId: null
+        jcjswjgDm: '13100510000'
+        lxdh: '13112345678'
+        nfzk: '2'
+        processInsId: '23801'
+        rwbt: "\u6D4B\u8BD5"
+        rwnr: "\u81EA\u52A8\u5316-\u5206\u5C40\u8F6C\u7B80\u6613"
+        sfhf: ''
+        sfjxzpjsbm: '0'
+        sfmy: ''
+        sfzf: '0'
+        sjfl: null
+        taskId: '34050'
+        tsdx: '3'
+        type: sjhzffgffgdrw
+        wtxz: '0305'
+        wxhfqksm: ''
+        yjfl: null
+        ywlx: '15'
+        zfswjgDm: ''
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/form/gddj/updateGddjxx
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+    - eq:
+      - content.data
+      - f602770a6e124ec39c55fba7e0947d4d
+- type6:
+    name: /workflow/web/workflow/engine/task/push/type
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        formDepart: 13101070900,
+        params:
+          FM385:
+            sfjxzpjsbm: '0'
+            sfxyzjcfjcl: '0'
+            sfydgswjbj: null
+            sfzf: '0'
+            tsdx: '3'
+        processInstanceId: '23801'
+        taskId: '34050'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/push/type
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- get7:
+    name: /workflow/web/workflow/engine/task/next/activity/participant/get
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        formDepart: 13101070900,
+        params:
+          FM385:
+            sfjxzpjsbm: '0'
+            sfxyzjcfjcl: '0'
+            sfydgswjbj: null
+            sfzf: '0'
+            tsdx: '3'
+        participant:
+          groupId: '10377'
+        processInstanceId: '23801'
+        taskId: '34050'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/next/activity/participant/get
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- lszDm8:
+    name: /workflow/web/workflow/rycx/query/by/lszDm
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        departIdList:
+        - '13101070900'
+        lszDm: '10381'
+        pageIndex: 1
+        pageSize: 10
+        swryDmOrMc: ''
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/rycx/query/by/lszDm
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- save9:
+    name: /workflow/web/workflow/taskApprove/save
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        apprContent: "\u8F6C\u7B80\u6613\u6D41\u7A0B"
+        apprOpinion: ''
+        contentType: json
+        eventId: SJ_BC
+        processInsId: '23801'
+        taskId: '34050'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/taskApprove/save
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+    - eq:
+      - content.data
+      - null
+- handleTask10:
+    name: /workflow/web/workflow/engine/task/handleTask
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        bizTypeId: LCA070011001
+        eventId: SJ_TS
+        formDepart: 13101070900,
+        nextDayValue: null
+        nextHourValue: null
+        nextParticipantMap:
+          Jjgk7jfkzvNr1LL:
+          - departId: '13101070900'
+            groupId: '10381'
+            swryMc: "\u8463\u7FD4-\u5F81\u6536\u7BA1\u7406\u79D1"
+            userId: '13101070025'
+            userSfDm: '1310107002501'
+        params:
+          FM385:
+            sfjxzpjsbm: '0'
+            sfxyzjcfjcl: '0'
+            sfydgswjbj: null
+            sfzf: '0'
+            tsdx: '3'
+        participant:
+          groupId: '10377'
+        preSetTaskId: 0
+        preSetTaskName: ''
+        processId: ''
+        processInstanceId: '23801'
+        sfgzr: Y
+        taskId: '34050'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/handleTask
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- param11:
+    name: /workflow/web/workflow/engine/task/push/control/param
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        params:
+          FM386:
+            apprOpinion: '1'
+            sfjxzpjsbm: '0'
+            sfxyzjcfjcl: '0'
+            sfydgswjbj: '1'
+            sfzf: '0'
+            tsdx: '3'
+        processInstanceId: '23801'
+        taskId: '34052'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/push/control/param
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- save12:
+    name: /workflow/web/workflow/form/simple/attachment/save
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        addAttachmentList: []
+        content: null
+        createUserId: ''
+        delFbzlList: []
+        processInsId: '23801'
+        taskId: '34052'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/form/simple/attachment/save
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- updateGddjxx13:
+    name: /workflow/web/workflow/form/gddj/updateGddjxx
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        bh: "\u6CAA\u7A0E\u7535\u4E3E\u30102019\u3011000765"
+        clyjId: null
+        clyjMb: null
+        departId: '13101070900'
+        ejfl: ''
+        gddjId: f602770a6e124ec39c55fba7e0947d4d
+        jcjswjgDm: '13100510000'
+        lxdh: '13112345678'
+        nfzk: '2'
+        processInsId: '23801'
+        rwbt: "\u6D4B\u8BD5"
+        rwnr: "\u81EA\u52A8\u5316-\u5206\u5C40\u8F6C\u7B80\u6613"
+        sfhf: ''
+        sfjxzpjsbm: '0'
+        sfmy: ''
+        sfzf: '0'
+        sjfl: ''
+        taskId: '34052'
+        tsdx: '3'
+        type: jsgjsrwwp
+        wtxz: '0305'
+        wxhfqksm: ''
+        yjfl: ''
+        ywlx: '15'
+        zfswjgDm: ''
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/form/gddj/updateGddjxx
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+    - eq:
+      - content.data
+      - f602770a6e124ec39c55fba7e0947d4d
+- updateGdZfbmxx14:
+    name: /workflow/web/workflow/form/gddj/updateGdZfbmxx
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        processInsId: '23801'
+        sfzf: '0'
+        tsdx: '3'
+        type: jsgjsrwwp
+        zfswjgDm: ''
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/form/gddj/updateGdZfbmxx
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+    - eq:
+      - content.data
+      - null
+- type15:
+    name: /workflow/web/workflow/engine/task/push/type
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        formDepart: '13101070900'
+        params:
+          FM386:
+            apprOpinion: '1'
+            sfjxzpjsbm: '0'
+            sfxyzjcfjcl: '0'
+            sfydgswjbj: '1'
+            sfzf: '0'
+            tsdx: '3'
+        processInstanceId: '23801'
+        taskId: '34052'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/push/type
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- get16:
+    name: /workflow/web/workflow/engine/task/next/activity/participant/get
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        formDepart: '13101070900'
+        params:
+          FM386:
+            apprOpinion: '1'
+            sfjxzpjsbm: '0'
+            sfxyzjcfjcl: '0'
+            sfydgswjbj: '1'
+            sfzf: '0'
+            tsdx: '3'
+        participant:
+          groupId: '10381'
+        processInstanceId: '23801'
+        taskId: '34052'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/next/activity/participant/get
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- lszDm17:
+    name: /workflow/web/workflow/rycx/query/by/lszDm
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        departIdList:
+        - '13101070900'
+        lszDm: '10393'
+        pageIndex: 1
+        pageSize: 10
+        swryDmOrMc: ''
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/rycx/query/by/lszDm
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- save18:
+    name: /workflow/web/workflow/taskApprove/save
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        apprContent: "\u540C\u610F123"
+        apprOpinion: '1'
+        contentType: json
+        eventId: SJ_BC
+        processInsId: '23801'
+        taskId: '34052'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/taskApprove/save
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+    - eq:
+      - content.data
+      - null
+- handleTask19:
+    name: /workflow/web/workflow/engine/task/handleTask
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        bizTypeId: LCA070011001
+        eventId: SJ_TS
+        formDepart: '13101070900'
+        nextDayValue: 10
+        nextHourValue: null
+        nextParticipantMap:
+          Ta250291MhDUiHm:
+          - departId: '13101070900'
+            groupId: '10393'
+            swryMc: "\u8463\u7FD4-\u5F81\u6536\u7BA1\u7406\u79D1"
+            userId: '13101070025'
+            userSfDm: '1310107002501'
+        params:
+          FM386:
+            apprOpinion: '1'
+            sfjxzpjsbm: '0'
+            sfxyzjcfjcl: '0'
+            sfydgswjbj: '1'
+            sfzf: '0'
+            tsdx: '3'
+        participant:
+          groupId: '10381'
+        preSetTaskId: 0
+        preSetTaskName: ''
+        processId: ''
+        processInstanceId: '23801'
+        sfgzr: Y
+        taskId: '34052'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/handleTask
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- zjylc20:
+    name: /workflow/web/workflow/form/rcjc/jylc/zjylc
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        ajlydm: null
+        departId: null
+        djxh: '10111302000017200003'
+        drzt: null
+        errorReason: null
+        gwxh: null
+        handleSwjgdm: null
+        handleSwjgmc: null
+        handleSwrydm: null
+        kqccsztdjbz: N
+        kzztdjlxmc: "\u672A\u529E\u7406\u8425\u4E1A\u6267\u7167"
+        kzztlxDm: '1134'
+        nsrmc: "\u65B0\u9020\u7684\u5566\u5566\u5566-3"
+        nsrsbh: '91131022236882382860'
+        nsrztDm: '03'
+        nsrztmc: "\u6B63\u5E38"
+        qyzgy: "\u738B\u6DD1\u541B\uFF08\u540E\u53F0\uFF09"
+        qyzgyDm: null
+        rwmc: null
+        rwpch: null
+        shxydm: '91131022236882382860'
+        swjgList: null
+        swryList: null
+        userId: null
+        uuid: null
+        xgrq: null
+        xh: null
+        yglgdbh: null
+        zgswjgDm: '13101070000'
+        zgswjgksDm: '13101070900'
+        zgswjgksmc: "\u666E\u9640\u533A\u7A0E\u52A1\u5C40\u5F81\u6536\u7BA1\u7406\u79D1"
+        zgswjgmc: "\u666E\u9640\u533A\u7A0E\u52A1\u5C40"
+        zgswjgsc: null
+      method: POST
+      params:
+        gwxh: '10393'
+        processInsId: '23801'
+        taskId: '34058'
+      url: http://10.199.137.214:8080/workflow/web/workflow/form/rcjc/jylc/zjylc
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+    - eq:
+      - content.data
+      - null

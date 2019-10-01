@@ -1,0 +1,957 @@
+- config: zdy_cjrw
+- createTask1:
+    name: /workflow/web/workflow/engine/task/createTask
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        bizType: '1355'
+        contentType: json
+        createGw: ''
+        dataSource:
+          dataSet: []
+          disabled: false
+          extraDisabled: false
+          name: bizType
+          showSearch: false
+          title: "\u4EFB\u52A1\u7C7B\u578B"
+          type: treeSelect
+          validate: {}
+        getValidator:
+          flag: true
+          tip: ''
+        key: bizType
+        participant:
+          departId: ''
+          groupId: ''
+          userId: ''
+        preSetTaskName: dde
+        processId: '1355'
+        qsFlag: false
+        sfgzr: Y
+        sourceAppId: webApp
+        targetTypeId: NSR
+        taskTargetIds: []
+        totalDayValue: null
+        totalHourValue: null
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/createTask
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- saveInserType2:
+    name: /workflow/web/workflow/form/rwzx/zdybd/excel/saveInserType
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        insertType: swry_djxh
+        processInsId: '23841'
+        taskId: '34223'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/form/rwzx/zdybd/excel/saveInserType
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+    - eq:
+      - content.data
+      - "\u4FDD\u5B58\u6210\u529F"
+- btxxQuery3:
+    name: /workflow/web/workflow/form/rwzx/zdybd/excel/btxxQuery
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        processInsId: '23841'
+        taskId: '34223'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/form/rwzx/zdybd/excel/btxxQuery
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- queryZdybdDate4:
+    name: /workflow/web/workflow/form/rwzx/zdybd/excel/queryZdybdDate
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        pageIndex: 1
+        pageSize: 20
+        processInsId: '23841'
+        taskId: '34223'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/form/rwzx/zdybd/excel/queryZdybdDate
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- djxh5:
+    name: /workflow/web/workflow/form/rwzx/zdybd/excel/import/swry/djxh
+    request:
+      data: ""
+      headers:
+        Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7h32joBvb1JBOPRx
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+      method: POST
+      params:
+        processInsId: '23841'
+        taskId: '34223'
+      url: http://10.199.137.214:8080/workflow/web/workflow/form/rwzx/zdybd/excel/import/swry/djxh
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- param6:
+    name: /workflow/web/workflow/engine/task/push/control/param
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        processInstanceId: '23841'
+        taskId: '34223'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/push/control/param
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- btxxSave7:
+    name: /workflow/web/workflow/form/rwzx/zdybd/excel/btxxSave
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        btxxID: a40ae4b7f29e44fea35508bf502ff3b4
+        cjl1: "\u6570\u636E\u91C7\u96C6"
+        insertType: swry_djxh
+        processInsId: '23841'
+        rwms: "\u63A8\u9001\u5BA1\u6838"
+        taskId: '34223'
+        zdyl1: "\u81EA\u5B9A\u4E49\u52171"
+        zdyl2: "\u81EA\u5B9A\u4E49\u52172"
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/form/rwzx/zdybd/excel/btxxSave
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+    - eq:
+      - content.data
+      - "\u4FDD\u5B58\u6210\u529F"
+- type8:
+    name: /workflow/web/workflow/engine/task/push/type
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        processInstanceId: '23841'
+        taskId: '34223'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/push/type
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- get9:
+    name: /workflow/web/workflow/engine/task/next/activity/participant/get
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        participant:
+          groupId: 30BD547D0C13687BE055000000000001
+        processInstanceId: '23841'
+        taskId: '34223'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/next/activity/participant/get
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- gwdm10:
+    name: /workflow/web/workflow/rycx/query/by/gwdm
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        departIdList:
+        - '13100250000'
+        groupDmList:
+        - '131020100020'
+        - '131020100021'
+        - '131010100012'
+        pageIndex: 1
+        pageSize: 10
+        swryDmOrMc: ''
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/rycx/query/by/gwdm
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- handleTask11:
+    name: /workflow/web/workflow/engine/task/handleTask
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        bizTypeId: SXA070010001
+        eventId: SJ_TS
+        nextDayValue: null
+        nextHourValue: null
+        nextParticipantMap:
+          Do9LZ5jdCHv13bq:
+          - departId: '13100250000'
+            groupId: 30BD547D0C0E687BE055000000000001
+            swryMc: "\u8881\u6E0A-\u5F81\u79D1\u5904"
+            userId: '13100250014'
+            userSfDm: '1310025001401'
+        participant:
+          groupId: 30BD547D0C13687BE055000000000001
+        preSetTaskId: 0
+        preSetTaskName: ''
+        processId: ''
+        processInstanceId: '23841'
+        sfgzr: Y
+        taskId: '34223'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/handleTask
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- btxxQuery12:
+    name: /workflow/web/workflow/form/rwzx/zdybd/excel/btxxQuery
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        processInsId: '23841'
+        taskId: '34224'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/form/rwzx/zdybd/excel/btxxQuery
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- queryZdybdDate13:
+    name: /workflow/web/workflow/form/rwzx/zdybd/excel/queryZdybdDate
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        bdhj: ''
+        pageIndex: 1
+        pageSize: 20
+        processInsId: '23841'
+        taskId: '34224'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/form/rwzx/zdybd/excel/queryZdybdDate
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- param14:
+    name: /workflow/web/workflow/engine/task/push/control/param
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        processInstanceId: '23841'
+        taskId: '34224'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/push/control/param
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- saveCjlxx15:
+    name: /workflow/web/workflow/form/rwzx/zdybd/excel/saveCjlxx
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        requestDTO:
+        - djxh: '10013101001010017653'
+          nsrmc: "\u4E0A\u6D77\u6D66\u76DB\u52B3\u52A8\u4FDD\u969C\u54A8\u8BE2\u670D\
+            \u52A1\u6709\u9650\u516C\u53F8"
+          processInsId: 23841
+          shxydm: '913101017293581700'
+          swjgdm: '13101014700'
+          swjgmc: "\u9EC4\u6D66\u533A\u7A0E\u52A1\u5C40\u7B2C\u5341\u56DB\u7A0E\u52A1\
+            \u6240"
+          taskId: 34224
+          zdybdId: b117d497176047de922cdde330c92495
+          zgydm: '13101010623'
+          zgymc: "\u6731\u82E1\u6743"
+        - djxh: '10013101001090021685'
+          nsrmc: "\u4E0A\u6D77\u6C11\u9686\u5B9E\u4E1A\u516C\u53F8"
+          processInsId: 23841
+          shxydm: 91310109133182311B
+          swjgdm: '13101094900'
+          swjgmc: "\u8679\u53E3\u533A\u7A0E\u52A1\u5C40\u7B2C\u5341\u516B\u7A0E\u52A1\
+            \u6240"
+          taskId: 34224
+          zdybdId: 3e8bfb7b7ae548f4a936fd603038233c
+          zgydm: '13101090422'
+          zgymc: "\u5218\u8521\u535A"
+        - djxh: '10013101001010018854'
+          nsrmc: "\u4E0A\u6D77\u65B0\u4E9A\u5EFA\u7B51\u88C5\u9970\u5DE5\u7A0B\u6709\
+            \u9650\u516C\u53F8"
+          processInsId: 23841
+          shxydm: '913101011324373430'
+          swjgdm: '13101014600'
+          swjgmc: "\u9EC4\u6D66\u533A\u7A0E\u52A1\u5C40\u7B2C\u5341\u4E09\u7A0E\u52A1\
+            \u6240"
+          taskId: 34224
+          zdybdId: 6ade273ae0864a86b7a68bbbb593b6ad
+          zgydm: '13101010509'
+          zgymc: "\u848B\u6653\u9752"
+        - djxh: '10013101001010056577'
+          nsrmc: "\u4E0A\u6D77\u4F17\u78CA\u65C5\u884C\u793E\u6709\u9650\u516C\u53F8"
+          processInsId: 23841
+          shxydm: 91310101778948097X
+          swjgdm: '13101014700'
+          swjgmc: "\u9EC4\u6D66\u533A\u7A0E\u52A1\u5C40\u7B2C\u5341\u56DB\u7A0E\u52A1\
+            \u6240"
+          taskId: 34224
+          zdybdId: ef6705c30eef482d8eb1706bac60ac95
+          zgydm: '13101010545'
+          zgymc: "\u5218\u7434"
+        - djxh: '10013101001070009239'
+          nsrmc: "\u4E0A\u6D77\u6FB3\u9752\u901A\u4FE1\u8BBE\u5907\u6709\u9650\u516C\
+            \u53F8"
+          processInsId: 23841
+          shxydm: 91310107631112527K
+          swjgdm: '13101073200'
+          swjgmc: "\u666E\u9640\u533A\u7A0E\u52A1\u5C40\u7B2C\u5341\u4E03\u7A0E\u52A1\
+            \u6240"
+          taskId: 34224
+          zdybdId: 4e7a38c39e4249ea85127a1cea4b4f8c
+          zgydm: '13101070015'
+          zgymc: "\u9AD8\u52C7"
+        - djxh: '10013101001120032220'
+          nsrmc: "\u4E0A\u6D77\u6CFD\u5CF0\u88C5\u6F62\u6709\u9650\u516C\u53F8"
+          processInsId: 23841
+          shxydm: 91310112630799347B
+          swjgdm: '13101125300'
+          swjgmc: "\u95F5\u884C\u533A\u7A0E\u52A1\u5C40\u7B2C\u4E8C\u5341\u4E00\u7A0E\
+            \u52A1\u6240"
+          taskId: 34224
+          zdybdId: 52a0c778c0634d7d9a2cd920239b84c2
+          zgydm: '13101120473'
+          zgymc: "\u7A0B\u82E1"
+        - djxh: '10013101001120048745'
+          nsrmc: "\u4E0A\u6D77\u534E\u6D9B\u5899\u4F53\u6750\u6599\u6709\u9650\u516C\
+            \u53F8"
+          processInsId: 23841
+          shxydm: 91310112755714802G
+          swjgdm: '13101124900'
+          swjgmc: "\u95F5\u884C\u533A\u7A0E\u52A1\u5C40\u7B2C\u5341\u516B\u7A0E\u52A1\
+            \u6240"
+          taskId: 34224
+          zdybdId: 0e42a29bd8d041128e14c5901421a70d
+          zgydm: '13101120411'
+          zgymc: "\u5F20\u519B"
+        - djxh: '10013101001010057676'
+          nsrmc: "\u4E0A\u6D77\u7533\u4F1F\u56FD\u9645\u65C5\u884C\u793E\u6709\u9650\
+            \u516C\u53F8"
+          processInsId: 23841
+          shxydm: 9131010178244553XJ
+          swjgdm: '13101014800'
+          swjgmc: "\u9EC4\u6D66\u533A\u7A0E\u52A1\u5C40\u7B2C\u5341\u4E94\u7A0E\u52A1\
+            \u6240"
+          taskId: 34224
+          zdybdId: 9e3b19abd8024343b9188303acea7b70
+          zgydm: '13101012400'
+          zgymc: "\u5F6D\u96F7"
+        - djxh: '10013101001120047659'
+          nsrmc: "\u4E0A\u6D77\u8398\u57CE\u623F\u5730\u4EA7\u5F00\u53D1\u6709\u9650\
+            \u516C\u53F8"
+          processInsId: 23841
+          shxydm: '913101127449244094'
+          swjgdm: '13101124300'
+          swjgmc: "\u95F5\u884C\u533A\u7A0E\u52A1\u5C40\u7B2C\u5341\u4E09\u7A0E\u52A1\
+            \u6240"
+          taskId: 34224
+          zdybdId: a1a1beeb96bf4f8c8619640b5a2dcba0
+          zgydm: '13101120064'
+          zgymc: "\u59DA\u60E0\u660E"
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/form/rwzx/zdybd/excel/saveCjlxx
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+    - eq:
+      - content.data
+      - "\u64CD\u4F5C\u5B8C\u6210"
+- type16:
+    name: /workflow/web/workflow/engine/task/push/type
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        processInstanceId: '23841'
+        taskId: '34224'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/push/type
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- save17:
+    name: /workflow/web/workflow/taskApprove/save
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        apprContent: "\u540C\u610F-\u62C6\u5206\u7ED9\u7A0E\u52A1\u4EBA\u5458"
+        apprOpinion: '1'
+        contentType: json
+        eventId: SJ_BC
+        processInsId: '23841'
+        taskId: '34224'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/taskApprove/save
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+    - eq:
+      - content.data
+      - null
+- queryPushInfo18:
+    name: /workflow/web/workflow/form/rwzx/zdybd/excel/queryPushInfo
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        processInsId: '23841'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/form/rwzx/zdybd/excel/queryPushInfo
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null
+- handleTask19:
+    name: /workflow/web/workflow/engine/task/handleTask
+    request:
+      headers:
+        Content-Type: application/json;charset=UTF-8
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+          like Gecko) Chrome/76.0.3809.132 Safari/537.36
+        X-Requested-With: XMLHttpRequest
+      json:
+        bizTypeId: SXA070010001
+        eventId: SJ_TS
+        formDataSplitDto:
+          formDataSplitRuleDtoList:
+          - businessData: a1a1beeb96bf4f8c8619640b5a2dcba0
+            departId: '13101124300'
+            participantDTOList:
+            - departId: '13101124300'
+              departMc: null
+              groupDm: null
+              groupId: '-1'
+              groupMc: null
+              limitState: null
+              processEndDate: null
+              processStartDate: null
+              state: null
+              swjgDm: null
+              swryDm: null
+              swryMc: null
+              taskName: null
+              userGroupIds: null
+              userId: '13101120064'
+              userSfDm: null
+            receiveActivityId: null
+            taskName: null
+            todoType: '0'
+            todoTypeEnum: GRDB
+          - businessData: 3e8bfb7b7ae548f4a936fd603038233c
+            departId: '13101094900'
+            participantDTOList:
+            - departId: '13101094900'
+              departMc: null
+              groupDm: null
+              groupId: '-1'
+              groupMc: null
+              limitState: null
+              processEndDate: null
+              processStartDate: null
+              state: null
+              swjgDm: null
+              swryDm: null
+              swryMc: null
+              taskName: null
+              userGroupIds: null
+              userId: '13101090422'
+              userSfDm: null
+            receiveActivityId: null
+            taskName: null
+            todoType: '0'
+            todoTypeEnum: GRDB
+          - businessData: 6ade273ae0864a86b7a68bbbb593b6ad
+            departId: '13101014600'
+            participantDTOList:
+            - departId: '13101014600'
+              departMc: null
+              groupDm: null
+              groupId: '-1'
+              groupMc: null
+              limitState: null
+              processEndDate: null
+              processStartDate: null
+              state: null
+              swjgDm: null
+              swryDm: null
+              swryMc: null
+              taskName: null
+              userGroupIds: null
+              userId: '13101010509'
+              userSfDm: null
+            receiveActivityId: null
+            taskName: null
+            todoType: '0'
+            todoTypeEnum: GRDB
+          - businessData: b117d497176047de922cdde330c92495
+            departId: '13101014700'
+            participantDTOList:
+            - departId: '13101014700'
+              departMc: null
+              groupDm: null
+              groupId: '-1'
+              groupMc: null
+              limitState: null
+              processEndDate: null
+              processStartDate: null
+              state: null
+              swjgDm: null
+              swryDm: null
+              swryMc: null
+              taskName: null
+              userGroupIds: null
+              userId: '13101010623'
+              userSfDm: null
+            receiveActivityId: null
+            taskName: null
+            todoType: '0'
+            todoTypeEnum: GRDB
+          - businessData: 0e42a29bd8d041128e14c5901421a70d
+            departId: '13101124900'
+            participantDTOList:
+            - departId: '13101124900'
+              departMc: null
+              groupDm: null
+              groupId: '-1'
+              groupMc: null
+              limitState: null
+              processEndDate: null
+              processStartDate: null
+              state: null
+              swjgDm: null
+              swryDm: null
+              swryMc: null
+              taskName: null
+              userGroupIds: null
+              userId: '13101120411'
+              userSfDm: null
+            receiveActivityId: null
+            taskName: null
+            todoType: '0'
+            todoTypeEnum: GRDB
+          - businessData: 4e7a38c39e4249ea85127a1cea4b4f8c
+            departId: '13101073200'
+            participantDTOList:
+            - departId: '13101073200'
+              departMc: null
+              groupDm: null
+              groupId: '-1'
+              groupMc: null
+              limitState: null
+              processEndDate: null
+              processStartDate: null
+              state: null
+              swjgDm: null
+              swryDm: null
+              swryMc: null
+              taskName: null
+              userGroupIds: null
+              userId: '13101070015'
+              userSfDm: null
+            receiveActivityId: null
+            taskName: null
+            todoType: '0'
+            todoTypeEnum: GRDB
+          - businessData: ef6705c30eef482d8eb1706bac60ac95
+            departId: '13101014700'
+            participantDTOList:
+            - departId: '13101014700'
+              departMc: null
+              groupDm: null
+              groupId: '-1'
+              groupMc: null
+              limitState: null
+              processEndDate: null
+              processStartDate: null
+              state: null
+              swjgDm: null
+              swryDm: null
+              swryMc: null
+              taskName: null
+              userGroupIds: null
+              userId: '13101010545'
+              userSfDm: null
+            receiveActivityId: null
+            taskName: null
+            todoType: '0'
+            todoTypeEnum: GRDB
+          - businessData: 52a0c778c0634d7d9a2cd920239b84c2
+            departId: '13101125300'
+            participantDTOList:
+            - departId: '13101125300'
+              departMc: null
+              groupDm: null
+              groupId: '-1'
+              groupMc: null
+              limitState: null
+              processEndDate: null
+              processStartDate: null
+              state: null
+              swjgDm: null
+              swryDm: null
+              swryMc: null
+              taskName: null
+              userGroupIds: null
+              userId: '13101120473'
+              userSfDm: null
+            receiveActivityId: null
+            taskName: null
+            todoType: '0'
+            todoTypeEnum: GRDB
+          - businessData: 9e3b19abd8024343b9188303acea7b70
+            departId: '13101014800'
+            participantDTOList:
+            - departId: '13101014800'
+              departMc: null
+              groupDm: null
+              groupId: '-1'
+              groupMc: null
+              limitState: null
+              processEndDate: null
+              processStartDate: null
+              state: null
+              swjgDm: null
+              swryDm: null
+              swryMc: null
+              taskName: null
+              userGroupIds: null
+              userId: '13101012400'
+              userSfDm: null
+            receiveActivityId: null
+            taskName: null
+            todoType: '0'
+            todoTypeEnum: GRDB
+          taskTodoType: null
+        nextDayValue: null
+        nextHourValue: null
+        nextParticipantMap: null
+        participant:
+          groupId: 30BD547D0C0E687BE055000000000001
+        preSetTaskId: 0
+        preSetTaskName: ''
+        processId: ''
+        processInstanceId: '23841'
+        sfgzr: Y
+        taskId: '34224'
+      method: POST
+      url: http://10.199.137.214:8080/workflow/web/workflow/engine/task/handleTask
+    validate:
+    - eq:
+      - status_code
+      - 200
+    - eq:
+      - headers.Content-Type
+      - application/json;charset=UTF-8
+    - eq:
+      - content.code
+      - SUCCESS
+    - eq:
+      - content.params
+      - null
+    - eq:
+      - content.message
+      - null

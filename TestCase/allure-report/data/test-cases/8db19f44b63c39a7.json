@@ -1,0 +1,76 @@
+{
+  "uid" : "8db19f44b63c39a7",
+  "name" : "test_save[type31]",
+  "fullName" : "test_gddjlc.Testgddj#test_save",
+  "historyId" : "a4b93f3774cf6b1e2afe29dd213449b9",
+  "time" : {
+    "start" : 1569567654965,
+    "stop" : 1569567655523,
+    "duration" : 558
+  },
+  "description" : "\n            用例描述：环节1保存意见\n        ",
+  "descriptionHtml" : "<pre><code>        用例描述：环节1保存意见\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n            用例描述：环节1保存意见\n        ",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "d00ee6d9ddad0b79",
+      "name" : "log",
+      "source" : "d00ee6d9ddad0b79.txt",
+      "type" : "text/plain",
+      "size" : 558
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite"
+  }, {
+    "name" : "suite",
+    "value" : "test_gddjlc"
+  }, {
+    "name" : "subSuite",
+    "value" : "Testgddj"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-QQNR3O0S"
+  }, {
+    "name" : "thread",
+    "value" : "21476-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_gddjlc"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "casename1",
+    "value" : "'type31'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "8db19f44b63c39a7.json",
+  "parameterValues" : [ "'type31'" ]
+}
